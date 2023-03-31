@@ -1,7 +1,11 @@
 type Query {
 	allBooks:[Book]
 	bookById(id: ID):Book
+	authorById(id:ID): Author
 }
+
+type Mutation{
+	createBook(Book book):Book
 
 type Book {
 	id:ID
