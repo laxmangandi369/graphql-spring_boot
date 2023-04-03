@@ -17,7 +17,9 @@ import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RestController;
 
+import com.graphqljava.tutorial.bookDetails.entity.Author;
 import com.graphqljava.tutorial.bookDetails.entity.Book;
+import com.graphqljava.tutorial.bookDetails.service.AuthorService;
 import com.graphqljava.tutorial.bookDetails.service.BookService;
 
 //@RestController
@@ -27,10 +29,15 @@ public class BookController {
 
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private AuthorService authorService;
 
 //	@PostMapping
-	@MutationMapping("addBooks")
-	public ResponseEntity<Book> create(Book book) {
+	@MutationMapping("createBook")
+	public ResponseEntity<Book> create(@Argument String name, @Argument String description, @Argument int authorId, @Argument Float price, @Argument int pages) {
+		Author author = authorService.getById(Long.valueOf(authorId));
+		Book book = new Book(name, description, author, pages, pages);
 		return new ResponseEntity<>(bookService.create(book), HttpStatusCode.valueOf(200));
 	}
 	

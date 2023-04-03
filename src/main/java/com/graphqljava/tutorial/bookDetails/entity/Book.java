@@ -15,6 +15,17 @@ import lombok.Data;
 @Data
 public class Book {
 	
+	
+	
+	public Book(String name, String description, Author author, double price, int pages) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.author = author;
+		this.price = price;
+		this.pages = pages;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

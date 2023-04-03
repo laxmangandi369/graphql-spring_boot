@@ -19,7 +19,8 @@ public class BookDaoImpl implements BookDao{
 	
 	@Override
 	public Book create(Book book) {
-			return bookRepository.save(book);
+			Book book2 =  bookRepository.save(book);
+			return book2;
 		
 	}
 
