@@ -9,10 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "bookdetails")
 @Data
+@NoArgsConstructor
 public class Book {
 	
 	
@@ -27,7 +29,7 @@ public class Book {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column

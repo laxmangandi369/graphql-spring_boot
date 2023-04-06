@@ -22,5 +22,15 @@ public class AuthorDaoImpl implements AuthorDao{
 			throw new CustomException("author with "+id+" not found.");
 		}
 	}
+	
+	@Override
+	public Author saveAUthor(Author author) {
+		if(author !=null) {
+			return authorRepository.save(author);
+		}
+		else {
+			throw new CustomException("cannot save the author with autherId "+author.getId());
+		}
+	}
 
 }

@@ -9,18 +9,15 @@ import lombok.Data;
 
 @Entity
 @Data
-public class DataTest {
-
+public class Role {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
 	@Column
-	private String name;
-
-	public DataTest(String name) {
-		super();
-		this.name = name;
-	}
-
+	private String role;
+	
+	@Column
+	private String description;
 }

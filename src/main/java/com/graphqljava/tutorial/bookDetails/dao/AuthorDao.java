@@ -5,5 +5,7 @@ import com.graphqljava.tutorial.bookDetails.entity.Author;
 public interface AuthorDao {
 	
 	Author getById(Long id);
+	
+	Author saveAUthor(Author author);
 
 }

@@ -27,5 +27,13 @@ public class Author {
 	@JoinColumn(name = "author_id")
 	private List<DataTest> dataTest;
 
+	public Author(String name, List<DataTest> dataTest) {
+		super();
+		this.name = name;
+		this.dataTest = dataTest;
+	}
+	
+	
+
 
 }

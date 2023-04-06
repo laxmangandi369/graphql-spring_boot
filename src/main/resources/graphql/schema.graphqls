@@ -2,11 +2,47 @@ type Query {
 	allBooks:[Book]
 	bookById(id: ID):Book
 	authorById(id:ID): Author
+
 }
 
 type Mutation{
-	createBook(name: String!, description: String, authorId: Int!, price: Float!, pages: Int): Book
+	createBook(name: String!, description: String, authorId: Int!, price: Float!, pages: Int! ): Book
+	saveAuthor(name: String!, testDataName : String):Author
+	addRoles(role: String!, description: String): Role
+	saveUser(signupModel : SignupModel): MyUser
+	loginUser(username : String, password : String):MyUser
 }
+
+type Role {
+	id : ID!
+	role : String!
+	description : String
+}
+
+input SignupModel{
+	firstName : String!
+	lastName : String!
+	email : String!
+	password : String!
+	roles : [InputRole]
+}
+
+input InputRole{
+	id:ID
+	role:String
+	description : String
+	}
+
+type MyUser {
+	
+	id : ID
+	firstName : String
+	lastName : String
+	email : String
+	password : String
+	roles : [Role]
+}
+
 type Book {
 	id:ID
 	name: String
@@ -17,6 +53,13 @@ type Book {
 	
 }
 
+input BookModel {
+	name: String
+	description : String
+	authorId : Int
+	price:Float
+	pages:Int! 
+}
 
 type Author{
 	id:ID
@@ -27,5 +70,25 @@ type Author{
 type DataTest{
 	id:ID
 	name:String
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
